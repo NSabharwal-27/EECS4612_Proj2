@@ -4,7 +4,7 @@
 // requests data from MEM
 
 module mem_resp_inf(
-
+    input     logic     mem_resp_valid_i,
 );
 
 
