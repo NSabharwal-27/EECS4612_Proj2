@@ -198,10 +198,8 @@ always @(posedge clk) begin
         n_count <= n_count + 1; //counting the columns
       else
         n_count <= 0;
-      if(n_count != 0) begin
+      if(n_count != 0) 
         i <= i + 1; //indexing the array at which we are storing
-        i_temp <= i_temp + 8; 
-      end
       addrX <= addrX + 4'b1000;//incrementing the address
     end
     if(state == load_vector) begin 
@@ -410,7 +408,7 @@ always @(*) begin
                  //mem_req_data_o = W;
                  mem_req_data_o = subword;
               end
-              if(mem_resp_valid_i) begin
+              if(mem_resp_valid_i && r_flag) begin
                 mem_req_valid_o = 0;
                 if (m_count < m_size) 
                   state_n = request_W;
